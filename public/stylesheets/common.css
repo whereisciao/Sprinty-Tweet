@@ -52,10 +52,10 @@
   div.pagination span.disabled      {padding:3px 7px; text-transform:lowercase; color:#ccc;}
   div.pagination span.current       {padding:3px 5px; font-weight:bold;}
 
-	div#location_setup								{background:#FDD108 none repeat scroll 0 0; height: 115px;}
-	div#location_setup div.info				{text-align:left; padding: 7px 15px; width: 200px; font-size: 13px;s}
-	div#location_setup div.info	a			{color:#00F;}
-	div#location_setup div.info	a:hover
+	div#location_setup								{background:#FDD108 none repeat scroll 0 0; height: 143px;}
+	div#location_setup div.info				{text-align:left; padding: 7px 15px; width: 200px; font-size: 13px;}
+	div#location_setup div.text	a			{color:#00F;}
+	div#location_setup div.text	a:hover
 																	  {color:#fff; background: #009;}
 	div#location_setup div.text				{padding: 3px 5px;}
 
