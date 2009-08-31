@@ -26,9 +26,20 @@ class StatusesController < ApplicationController
     unless params[:in_reply_to_status_id].blank?
       options.merge!({:in_reply_to_status_id => params[:in_reply_to_status_id]})
     end
-    
+
     tweet = current_user.client.update(params[:text], options)
     flash[:notice] = "Got it! Tweet ##{tweet.id} created."
+    if(current_user.location_enabled?)
+      response = SprintADP.get_location(current_user.sprint_api_key, current_user.sprint_mdn)
+      if(response.error.nil?)
+        location = "Sprint (#{response.lat}, #{response.lon})"
+        current_user.client.update_profile(:location => location.slice(0..29))
+        flash[:notice].gsub!(".", ",")
+        flash[:notice] += " and Profile Location updated."
+      else
+        flash[:notice] += " But I had trouble locating you." 
+      end
+    end
     return_to_or root_url
   end
   
