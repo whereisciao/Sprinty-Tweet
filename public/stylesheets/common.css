@@ -51,6 +51,11 @@
   div.pagination a.older            {float:right;}
   div.pagination span.disabled      {padding:3px 7px; text-transform:lowercase; color:#ccc;}
   div.pagination span.current       {padding:3px 5px; font-weight:bold;}
+
+	div#location_setup								{background:#FDD108 none repeat scroll 0 0; height: 115px;}
+	div#location_setup div.info				{text-align:left; padding: 7px 15px; width: 200px;}
+	div#location_setup div.text				{padding: 3px 5px;}
+/*	div#location_setup div.text	label {width: 45px;}*/
   
   #errorExplanation                 {border:1px solid #E3BEBE; background:#F6E8E8; margin:10px 0 20px; padding:20px;}
   #errorExplanation h2              {margin:-20px -20px 20px; background:#E3BEBE; padding:10px 20px;}

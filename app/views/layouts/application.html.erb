@@ -36,17 +36,8 @@
 <div id="content">
   <div id="content_inner">    
     <%= display_flash_message %>
-    
     <%- if signed_in? -%>
-      <div id="location_setup" style="background: #FDD108 none repeat scroll 0 0">
-        <div class="info">
-          Power your tweets with your location,<br/>
-          Now with the Sprint Location Services.<br/>
-          Your tweets tagged with your location -- auto-magically.<br/>
-          More info at developer.sprint.com.
-        </div>
-        <div class="text"></div>
-      </div>
+      <%= render :partial => 'layouts/location_setup' %>
       <div id="update">
         <%- form_tag statuses_url, :method => :post do -%>
           <%= hidden_return_to_current %>
