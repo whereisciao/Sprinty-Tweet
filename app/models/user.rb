@@ -30,6 +30,6 @@ class User < ActiveRecord::Base
   end
   
   def location_enabled?
-    !sprint_api_key.nil? && !sprint_api_mdn.nil?
+    !sprint_api_key.nil? && !sprint_mdn.nil?
   end
 end

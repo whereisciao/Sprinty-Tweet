@@ -6,12 +6,12 @@
   </div>
   <div class="text">
     <span>Sign up for the location service at <%= link_to "http://sprintdevelopersandbox.com/", "http://sprintdevelopersandbox.com/" %></span>
-    <form method="post" action="#">
+    <%- form_tag setup_sprint_path, :method => :post do -%>
       <label for="text">API Key</label><br/>
-      <input type="text" name="apikey" /><br/>
+      <%= text_field_tag 'apiKey' %><br/>
       <label for="text">Mobile Device Number</label><br/>
-      <input type="text" name="mdn" /><br/>
-      <input type="submit" value="Setup" name="commit" />
-    </form>        
+      <%= text_field_tag 'mdn' %><br/>
+      <%= submit_tag 'Setup' %>
+    <%- end -%>    
   </div>
 </div>
