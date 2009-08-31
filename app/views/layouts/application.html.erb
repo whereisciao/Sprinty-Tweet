@@ -35,9 +35,11 @@
 
 <div id="content">
   <div id="content_inner">    
-    <%= display_flash_message %>
     <%- if signed_in? -%>
-      <%= render :partial => 'layouts/location_setup' %>
+      <%- if location_setup? -%>
+        <%= render :partial => 'layouts/location_setup' %>
+      <%- end -%>    
+      <%= display_flash_message %>    
       <div id="update">
         <%- form_tag statuses_url, :method => :post do -%>
           <%= hidden_return_to_current %>
@@ -48,6 +50,8 @@
           <%= submit_tag 'Update' %>
         <%- end -%>
       </div>
+    <%- else -%>
+      <%= display_flash_message %>    
     <%- end -%>
     
     <%= yield %>

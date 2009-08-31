@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :atoken, :asecret
+  attr_accessible :atoken, :asecret, :sprint_api_key, :sprint_mdn
   
   def authorized?
     atoken.present? && asecret.present?
@@ -27,5 +27,9 @@ class User < ActiveRecord::Base
       oauth.authorize_from_access(atoken, asecret)
       Twitter::Base.new(oauth)
     end
+  end
+  
+  def location_enabled?
+    !sprint_api_key.nil? && !sprint_api_mdn.nil?
   end
 end
