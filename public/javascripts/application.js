@@ -53,7 +53,7 @@ jQuery(function($) {
     
     if (length == 0) {
       $('#in_reply_to_status_id').val('');
-      var label = $('label[for=text]')
+      var label = $('div#update label[for=text]')
       label.text(label.data('original_text'));
     }
   });
@@ -64,7 +64,7 @@ jQuery(function($) {
     return false;
   });
   
-  var label = $('label[for=text]')
+  var label = $('div#update label[for=text]')
   label.data('original_text', label.text());
   
   $('a.reply').click(function() {
@@ -74,7 +74,7 @@ jQuery(function($) {
     var id = pieces[1];
     $('#text').focus().val('@' + screen_name + ' ');
     $('#in_reply_to_status_id').val(id);
-    $('label[for=text]').text('Replying to ' + screen_name + "'s tweet #" + id);
+    $('div#update label[for=text]').text('Replying to ' + screen_name + "'s tweet #" + id);
     return false;
   });
 });
