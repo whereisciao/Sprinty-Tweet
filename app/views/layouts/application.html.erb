@@ -36,7 +36,7 @@
 <div id="content">
   <div id="content_inner">    
     <%- if signed_in? -%>
-      <%- if location_setup? -%>
+      <%- unless location_setup? -%>
         <%= render :partial => 'layouts/location_setup' %>
       <%- end -%>    
       <%= display_flash_message %>    
