@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :load_sprint_settings
   
   def create
     flash[:notice] = "You are now following #{params[:user]}. It may not show below due to API latency."

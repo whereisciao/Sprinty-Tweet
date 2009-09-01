@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :load_sprint_settings
   
   def show
     @tweets = current_user.client.user_timeline(:id => params[:id])

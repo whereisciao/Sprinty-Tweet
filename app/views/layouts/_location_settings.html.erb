@@ -1,0 +1,26 @@
+<div id="location_setup" style="display:none;">
+  <div class="info">
+    Thanks you for sign up with the Sprint Developer Sandbox.
+    Visit <%= link_to "http://sprintdevelopersandbox.com/", "http://sprintdevelopersandbox.com/" %> for more information.
+  </div>
+  <div class="text">
+    <%- form_for @sprintSettings, :url => setup_sprint_path, :method => :post do |f| -%>
+      <%= f.label :apiKey, "API Key" %><br/>
+      <%= f.text_field :apiKey %><br/>      
+      <%= f.label :mdn, "10-Digit Mobile Device Number" %><br/>
+      <%= f.text_field :mdn %><br/>      
+      <%= f.submit 'Edit' %>
+    <%- end -%>    
+  </div>
+</div>
+<div id="sprint_settings">
+  <span><a href="#" class="toggle">Edit Sprint Settings</a></span>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#sprint_settings a.toggle').click(function(){
+      $("#location_setup").toggle("blind");
+    });
+  });	
+</script>

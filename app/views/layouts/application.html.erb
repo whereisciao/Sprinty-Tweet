@@ -9,6 +9,7 @@
     
     <%= javascript_include_tag 'jquery' %>
     <%= javascript_include_tag 'jquery.form.js' %>
+    <%= javascript_include_tag 'jquery-ui.min.js' %>
     <%= javascript_include_tag 'application' %>
 </head>
 <body>
@@ -39,7 +40,7 @@
       <%- unless location_setup? -%>
         <%= render :partial => 'layouts/location_setup', :local => @sprintSettings %>
       <%- else -%>
-        <%= render :partial => 'layouts/location_setup', :local => @sprintSettings %>
+        <%= render :partial => 'layouts/location_settings', :local => @sprintSettings %>
       <%- end -%>    
       <%= display_flash_message %>    
       <div id="update">

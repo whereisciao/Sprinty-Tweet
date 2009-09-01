@@ -1,5 +1,5 @@
 class DirectMessagesController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :load_sprint_settings
   
   def index
     params[:page] ||= 1
