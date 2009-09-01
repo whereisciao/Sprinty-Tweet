@@ -38,6 +38,8 @@
     <%- if signed_in? -%>
       <%- unless location_setup? -%>
         <%= render :partial => 'layouts/location_setup' %>
+      <%- else -%>
+        <%= render :partial => 'layouts/location_setup' %>
       <%- end -%>    
       <%= display_flash_message %>    
       <div id="update">
