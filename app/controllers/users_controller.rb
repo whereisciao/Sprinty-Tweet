@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def setup_sprint
     @user = current_user
-    @user.sprint_api_key = params[:apiKey] || ""
-    @user.sprint_mdn = params[:mdn] || ""    
+    @user.sprint_api_key = params[:mash][:apiKey] || ""
+    @user.sprint_mdn = params[:mash][:mdn] || ""    
     if(@user.save)
       flash[:notice] = "Sprint API Settings Saved.<br/>You're a go to send out a Location-Tagged Tweet!"
     else

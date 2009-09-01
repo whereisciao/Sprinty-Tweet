@@ -6,12 +6,12 @@
   </div>
   <div class="text">
     <span>Sign up for the location service at <%= link_to "http://sprintdevelopersandbox.com/", "http://sprintdevelopersandbox.com/" %></span>
-    <%- form_tag setup_sprint_path, :method => :post do -%>
-      <label for="text">API Key</label><br/>
-      <%= text_field_tag 'apiKey', "", :class => "required" %><br/>
-      <label for="text">10-Digit Mobile Device Number</label><br/>
-      <%= text_field_tag 'mdn', "", :class => "required digits", :maxlength => 10, :minlength => 10 %><br/>
-      <%= submit_tag 'Setup' %>
+    <%- form_for @sprintSettings, :url => setup_sprint_path, :method => :post do |f| -%>
+      <%= f.label :apiKey, "API Key" %><br/>
+      <%= f.text_field :apiKey %><br/>      
+      <%= f.label :mdn, "10-Digit Mobile Device Number" %><br/>
+      <%= f.text_field :mdn %><br/>      
+      <%= f.submit 'Setup' %>
     <%- end -%>    
   </div>
 </div>

@@ -37,9 +37,9 @@
   <div id="content_inner">    
     <%- if signed_in? -%>
       <%- unless location_setup? -%>
-        <%= render :partial => 'layouts/location_setup' %>
+        <%= render :partial => 'layouts/location_setup', :local => @sprintSettings %>
       <%- else -%>
-        <%= render :partial => 'layouts/location_setup' %>
+        <%= render :partial => 'layouts/location_setup', :local => @sprintSettings %>
       <%- end -%>    
       <%= display_flash_message %>    
       <div id="update">

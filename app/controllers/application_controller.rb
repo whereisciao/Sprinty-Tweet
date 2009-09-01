@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   rescue_from Twitter::Unauthorized, :with => :force_sign_in
+
+  def load_sprint_settings
+    @user = current_user
+    @sprintSettings = Mash.new({:apiKey => @user.sprint_api_key, :mdn => @user.sprint_mdn})
+  end
   
   private
     def force_sign_in(exception)
