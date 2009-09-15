@@ -12,9 +12,13 @@
 class User < ActiveRecord::Base
   attr_accessible :atoken, :asecret, :sprint_api_key, :sprint_mdn
 
-  validates_presence_of :sprint_api_key
-  validates_presence_of :sprint_mdn
-  validates_format_of :sprint_mdn, :with => /\d{10}/, :message => "needs to be 10 digits"
+  validates_presence_of :sprint_mdn, :unless => :api_key_not_present
+  validates_format_of :sprint_mdn, :with => /\d{10}/, 
+    :message => "needs to be 10 digits", :unless => :api_key_not_present
+
+  def api_key_not_present
+    self.sprint_api_key.nil? || self.sprint_api_key.blank?
+  end
   
   def authorized?
     atoken.present? && asecret.present?
