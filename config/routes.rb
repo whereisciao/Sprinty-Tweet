@@ -5,7 +5,8 @@ ActionController::Routing::Routes.draw do |map|
                             :member => {:fav => :post, :unfav => :post}
   map.resources :direct_messages
   map.resources :users, :has_one => [:password, :confirmation]
-  map.setup_sprint 'setup_sprint_account', :controller => 'users', :action => 'setup_sprint' 
+  map.setup_sprint 'setup_sprint_account', :controller => 'users', :action => 'setup_sprint'
+  map.get_phone_list 'get_phone_list', :controller => 'SprintADP', :action => 'get_phone_list' 
   map.resources :passwords
   map.resources :friendships
   
