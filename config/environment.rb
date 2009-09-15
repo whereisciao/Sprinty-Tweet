@@ -20,6 +20,12 @@ module SprintADP
     response = HTTParty.get(sprint_resource + query_string, :format => :json)    
     Mash.new(response)
   end
+  def self.get_phone_list(apiKey)
+    sprint_resource = "http://sprintdevelopersandbox.com/SandboxWS/resources/phones.json?"
+    query_string = "key=#{apiKey}&authorized=a"    
+    response = HTTParty.get(sprint_resource + query_string, :format => :json)    
+    Mash.new(response)    
+  end
 end
 
 ConsumerConfig = YAML.load(File.read(Rails.root + 'config' + 'consumer.yml'))
