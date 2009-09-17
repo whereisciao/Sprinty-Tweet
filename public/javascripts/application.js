@@ -77,4 +77,31 @@ jQuery(function($) {
     $('div#update label[for=text]').text('Replying to ' + screen_name + "'s tweet #" + id);
     return false;
   });
+	
+	$('#mash_apiKey').change(function(){
+		console.debug("change");
+		var apiKey = $(this).val();		
+		var callback = function(data){
+			$("#spinner").toggle();
+			if(data.phone != undefined && data.phone.length > 0){
+				$("#mash_mdn").empty();
+				$.each(data.phone,function(idx, val){
+					console.debug("\t" + idx + " " + val);
+					var optionStr = []
+					optionStr.push("<option value=\""+val+"\">&nbsp;");
+					optionStr.push(val.substr(0,3) + "-");
+					optionStr.push(val.substr(3,3) + "-");
+					optionStr.push(val.substr(6,4));
+					optionStr.push("</option>");
+					$("#mash_mdn").append(optionStr.join(""));
+				});
+			}							
+		}
+		if(apiKey != undefined && apiKey.length >= 15){
+			// Loading Phone List    
+			console.debug("Loading Phone List");	
+			$("#spinner").toggle();
+			$.getJSON("/get_phone_list", {key: apiKey}, callback);
+		}		
+	});
 });

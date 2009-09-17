@@ -10,7 +10,9 @@
       <%= f.label :apiKey, "API Key" %><br/>
       <%= f.text_field :apiKey %><br/>      
       <%= f.label :mdn, "10-Digit Mobile Device Number" %><br/>
-      <%= f.text_field :mdn %><br/>      
+      <%= f.select :mdn, [], {:include_blank => true}, :style => "width: 218px; height: 1em;" %>
+      <%= image_tag 'ajax-loader.gif', :id => "spinner", :style => "display:none;" %>
+      <br/>
       <%= f.submit 'Setup' %>
     <%- end -%>    
   </div>
