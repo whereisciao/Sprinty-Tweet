@@ -79,14 +79,12 @@ jQuery(function($) {
   });
 	
 	$('#mash_apiKey').change(function(){
-		console.debug("change");
 		var apiKey = $(this).val();		
 		var callback = function(data){
 			$("#spinner").toggle();
 			if(data.phone != undefined && data.phone.length > 0){
 				$("#mash_mdn").empty();
 				$.each(data.phone,function(idx, val){
-					console.debug("\t" + idx + " " + val);
 					var optionStr = []
 					optionStr.push("<option value=\""+val+"\">&nbsp;");
 					optionStr.push(val.substr(0,3) + "-");
@@ -99,8 +97,9 @@ jQuery(function($) {
 		}
 		if(apiKey != undefined && apiKey.length >= 15){
 			// Loading Phone List    
-			console.debug("Loading Phone List");	
 			$("#spinner").toggle();
+			var loadingOption = "<option value=''>Loading...</option>"
+			$("#mash_mdn").empty().append(loadingOption);
 			$.getJSON("/get_phone_list", {key: apiKey}, callback);
 		}		
 	});
